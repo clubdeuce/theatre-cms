@@ -49,5 +49,4 @@ class Season implements \JsonSerializable
             'label' => $this->getLabel(),
         ];
     }
-
 }

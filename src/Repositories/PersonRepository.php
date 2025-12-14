@@ -10,7 +10,6 @@ final readonly class PersonRepository
 {
     public function __construct(private EntityManager $em)
     {
-
     }
 
     /**

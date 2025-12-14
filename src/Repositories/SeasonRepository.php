@@ -8,7 +8,9 @@ use Doctrine\ORM\Exception\ORMException;
 
 readonly class SeasonRepository
 {
-    public function __construct(private EntityManager $em) {}
+    public function __construct(private EntityManager $em)
+    {
+    }
 
     /**
      * @throws ORMException
@@ -24,5 +26,4 @@ readonly class SeasonRepository
     {
         return $this->em->find('Clubdeuce\Theaterpress\Models\Season', $id);
     }
-
 }
