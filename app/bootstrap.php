@@ -7,6 +7,8 @@ if( !defined('APP_ROOT') )
 
 require_once APP_ROOT . '/vendor/autoload.php';
 
+use Clubdeuce\Theaterpress\Repositories\PersonRepository;
+use Clubdeuce\Theaterpress\Repositories\SeasonRepository;
 use DI\Container;
 use Doctrine\DBAL\DriverManager;
 use Doctrine\ORM\EntityManager;
@@ -36,6 +38,14 @@ $container->set(EntityManager::class, static function (Container $c): EntityMana
     $connection = DriverManager::getConnection($settings['doctrine']['connection']);
 
     return new EntityManager($connection, $config);
+});
+
+$container->set(PersonRepository::class, static function (Container $c): PersonRepository {
+    return new PersonRepository($c->get(EntityManager::class));
+});
+
+$container->set(SeasonRepository::class, static function (Container $c): SeasonRepository {
+    return new SeasonRepository($c->get(EntityManager::class));
 });
 
 return $container;
