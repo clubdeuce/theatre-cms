@@ -1,0 +1,22 @@
+includes: []
+
+parameters:
+  # Use the highest level for strictness; adjust if needed.
+  level: max
+
+  # Analyse only project source code
+  paths:
+    - src
+
+  # Autoload Composer to make classes available to PHPStan
+  bootstrapFiles:
+    - vendor/autoload.php
+
+  # Exclude generated or vendor code from analysis explicitly (defensive)
+  excludePaths:
+    - vendor
+    - doctrine
+    - www
+
+  # Treat mixed more strictly in future if desired
+  reportUnmatchedIgnoredErrors: true

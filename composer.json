@@ -24,6 +24,10 @@
     },
     "require-dev": {
         "consolidation/robo": "^5.1",
-        "squizlabs/php_codesniffer": "^4.0"
+        "squizlabs/php_codesniffer": "^4.0",
+        "phpstan/phpstan": "^2.0"
+    },
+    "scripts": {
+        "stan": "phpstan analyse -c phpstan.neon.dist --memory-limit=1G"
     }
 }
