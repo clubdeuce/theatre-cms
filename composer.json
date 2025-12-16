@@ -1,10 +1,10 @@
 {
-    "name": "clubdeuce/theaterpress",
+    "name": "theatrecms/theatrecms",
     "type": "project",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Clubdeuce\\Theaterpress\\": "src/"
+            "Clubdeuce\\TheatreCMS\\": "src/"
         }
     },
     "authors": [
@@ -20,7 +20,8 @@
         "doctrine/orm": "^3.5",
         "doctrine/dbal": "^4.4",
         "symfony/cache": "^7.4",
-        "monolog/monolog": "^3.9"
+        "monolog/monolog": "^3.9",
+        "almasaeed2010/adminlte": "^3.2"
     },
     "require-dev": {
         "consolidation/robo": "^5.1",

@@ -1,6 +1,6 @@
 <?php
 
-namespace Clubdeuce\Theaterpress\Helpers;
+namespace ClubdeuceTheatreCMS\Helpers;
 
 class Sanitize
 {

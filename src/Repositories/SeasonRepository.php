@@ -1,8 +1,8 @@
 <?php
 
-namespace Clubdeuce\Theaterpress\Repositories;
+namespace Clubdeuce\Repositories;
 
-use Clubdeuce\Theaterpress\Models\Season;
+use ClubdeuceTheatreCMS\Models\Season;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
@@ -26,7 +26,7 @@ readonly class SeasonRepository
     public function findById(int $id): ?Season
     {
         try {
-            return $this->em->find('Clubdeuce\Theaterpress\Models\Season', $id);
+            return $this->em->find('ClubdeuceTheatreCMS\Models\Season', $id);
         } catch (OptimisticLockException|ORMException $e) {
             return null;
         }

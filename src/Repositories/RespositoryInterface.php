@@ -1,5 +1,5 @@
 <?php
-namespace Clubdeuce\Theaterpress\Repositories;
+namespace ClubdeuceTheatreCMS\Repositories;
 
 interface RespositoryInterface
 {

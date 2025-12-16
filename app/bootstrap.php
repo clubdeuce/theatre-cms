@@ -7,8 +7,8 @@ if( !defined('APP_ROOT') )
 
 require_once APP_ROOT . '/vendor/autoload.php';
 
-use Clubdeuce\Theaterpress\Repositories\PersonRepository;
-use Clubdeuce\Theaterpress\Repositories\SeasonRepository;
+use Clubdeuce\theatrecms\Repositories\PersonRepository;
+use Clubdeuce\theatrecms\Repositories\SeasonRepository;
 use DI\Container;
 use Doctrine\DBAL\DriverManager;
 use Doctrine\ORM\EntityManager;
