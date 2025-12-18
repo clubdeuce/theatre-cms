@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CONTRIBUTING.md",
+                "file": "Content Types/Seasons.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CONTRIBUTING"
+              "title": "Seasons"
             }
           }
         ]
@@ -183,10 +183,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "600261074e11dd9d",
+  "active": "3528b80056af8629",
   "lastOpenFiles": [
-    "README.md",
     "CONTRIBUTING.md",
+    "README.md",
     "Content Types/README.md",
     "Content Types/Workflow.md",
     "Content Types/People.md",
