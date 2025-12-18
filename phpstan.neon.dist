@@ -18,5 +18,12 @@ parameters:
     - doctrine
     - www
 
+  # Suppress warnings for Doctrine-managed id properties which are populated at runtime
+  ignoreErrors:
+    -
+      message: '#Property .*::\$id is never written, only read#'
+      paths:
+        - src/Models/*
+
   # Treat mixed more strictly in future if desired
   reportUnmatchedIgnoredErrors: true
