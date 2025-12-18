@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Content Types/Seasons.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Seasons"
+              "title": "README"
             }
           }
         ]
@@ -183,8 +183,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "3528b80056af8629",
+  "active": "600261074e11dd9d",
   "lastOpenFiles": [
+    "README.md~",
+    "Content Types/Seasons.md",
+    "Technology.md",
     "CONTRIBUTING.md",
     "README.md",
     "Content Types/README.md",
@@ -192,7 +195,6 @@
     "Content Types/People.md",
     "Content Types/Pages.md",
     "Content Types/Posts.md",
-    "Content Types/Seasons.md",
     "Content Types/Productions.md",
     "Content Types/Works.md",
     "Content Types"

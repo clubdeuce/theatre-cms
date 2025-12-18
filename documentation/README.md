@@ -16,3 +16,4 @@ Theatre CMS is built upon the works of giants:
 [PHP-DI](https://php-di.org/)
 [Doctrine](https://www.doctrine-project.org/)
 [CoreUi](https://coreui.io)
+[PHP Validator](https://github.com/BlakvGhost/PHPValidator)
