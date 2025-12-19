@@ -21,7 +21,8 @@
         "doctrine/dbal": "^4.4",
         "symfony/cache": "^7.4",
         "monolog/monolog": "^3.9",
-        "almasaeed2010/adminlte": "^3.2"
+        "almasaeed2010/adminlte": "^3.2",
+        "blakvghost/php-validator": "^2.3"
     },
     "require-dev": {
         "consolidation/robo": "^5.1",
