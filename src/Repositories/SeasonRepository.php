@@ -27,7 +27,7 @@ readonly class SeasonRepository
     {
         try {
             return $this->em->find('Clubdeuce\TheatreCMS\Models\Season', $id);
-        } catch (OptimisticLockException|ORMException $e) {
+        } catch (OptimisticLockException | ORMException $e) {
             trigger_error($e->getMessage(), E_USER_WARNING);
             return null;
         }
@@ -40,5 +40,20 @@ readonly class SeasonRepository
     {
         $repository = $this->em->getRepository(Season::class);
         return $repository->findAll();
+    }
+
+    public function deleteById(int $id): bool
+    {
+        try {
+            if ($item = $this->em->find(Season::class, $id)) {
+                $this->em->remove($item);
+            }
+
+            $this->em->flush();
+            return true;
+        } catch (ORMException $e) {
+            trigger_error($e->getMessage(), E_USER_WARNING);
+            return false;
+        }
     }
 }
