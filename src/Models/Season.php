@@ -47,9 +47,9 @@ class Season implements \JsonSerializable
         return $this->label;
     }
 
-    public function getOverview(): ?string
+    public function getOverview(): string
     {
-        return $this->overview;
+        return $this->overview ?? '';
     }
 
     public function getStartDate(): ?\DateTime
@@ -94,6 +94,7 @@ class Season implements \JsonSerializable
             'id' => $this->getId(),
             'slug' => $this->getSlug(),
             'label' => $this->getLabel(),
+            'startDate' => $this->getStartDate()?->format('Y-m-d'),
             'overview' => $this->getOverview(),
         ];
     }
