@@ -34,77 +34,9 @@ try{
 * Licensed under MIT (https://github.com/coreui/coreui-free-bootstrap-admin-template/blob/main/LICENSE)
 -->
 <html lang="en">
-<head>
-    <base href="./">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
-    <meta name="author" content="Łukasz Holeczek">
-    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>Dashboard: Site Name Here</title>
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/favicon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <!-- Vendors styles-->
-    <link rel="stylesheet" href="vendors/simplebar/css/simplebar.css">
-    <link rel="stylesheet" href="css/vendors/simplebar.css">
-    <!-- Main styles for this application-->
-    <link href="css/style.css" rel="stylesheet">
-    <!-- We use those styles to show code examples, you should remove them in your application.-->
-    <link href="css/examples.css" rel="stylesheet">
-    <script src="js/config.js"></script>
-    <script src="js/color-modes.js"></script>
-    <link href="vendors/@coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet">
-</head>
+<?php include 'includes/header.php'; ?>
 <body>
-<div class="sidebar sidebar-dark sidebar-fixed border-end" id="sidebar">
-    <div class="sidebar-header border-bottom">
-        <div class="sidebar-brand">
-            <svg class="sidebar-brand-full" width="88" height="32" alt="CoreUI Logo">
-                <use xlink:href="assets/brand/coreui.svg#full"></use>
-            </svg>
-            <svg class="sidebar-brand-narrow" width="32" height="32" alt="CoreUI Logo">
-                <use xlink:href="assets/brand/coreui.svg#signet"></use>
-            </svg>
-        </div>
-        <button class="btn-close d-lg-none" type="button" data-coreui-theme="dark" aria-label="Close" onclick="coreui.Sidebar.getInstance(document.querySelector(&quot;#sidebar&quot;)).toggle()"></button>
-    </div>
-    <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
-        <li class="nav-item"><a class="nav-link" href="index.html">
-                <svg class="nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
-                </svg> Dashboard<span class="badge badge-sm bg-info ms-auto">NEW</span></a></li>
-        <li class="nav-title">Content</li>
-        <li class="nav-item"><a href="seasons.php" class="nav-link">
-                <svg class="nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-calendar"></use>
-                </svg>Seasons</a></li>
-        <li class="nav-item"><a href="productions.php" class="nav-link">
-                <svg class="nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-book"></use>
-                </svg>Productions</a></li>
-        <li class="nav-divider"></li>
-        <li class="nav-title">Settings</li>
-    </ul>
-    <div class="sidebar-footer border-top d-none d-md-flex">
-        <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
-    </div>
-</div>
+<?php include 'includes/sidebar.php'; ?>
 <div class="wrapper d-flex flex-column min-vh-100">
     <header class="header header-sticky p-0 mb-4">
         <div class="container-fluid border-bottom px-4">
@@ -226,33 +158,33 @@ try{
     <div class="body flex-grow-1">
         <div class="container-fluid px-4">
             <h1>Seasons</h1>
-            <p>In Theatre CMS, <em>seasons</em> are simply a grouping of productions. In most instances, this
-            is a period of time, such as September of 2025 to June of 2026.</p>
             <div class="card mb-4">
-                <div class="card-header">Seasons Management</div>
+                <div class="card-header d-flex">
+                    <span class="col-md-4">Name</span>
+                    <span class="col-md-4">Start Date</span>
+                </div>
                 <?php foreach( $seasons as $season ): ?>
                 <div class="card-body d-flex justify-space-between align-items-center border-bottom">
-                    <div class="md-4">
+                    <div class="col-md-4">
                         <?php echo htmlspecialchars( $season->getLabel() ); ?>
                     </div>
-                    <div class="md-4 text-body-secondary">
+                    <div class="col-md-4 text-body-secondary">
                         <?php if( $season->getStartDate() ): ?>
                         <?php echo htmlspecialchars( $season->getStartDate()->format('M Y') ); ?>
                         <?php endif; ?>
                     </div>
-                    <div class="ml-auto">
-                        <a href="season_edit.php?id=<?php echo $season->getId(); ?>" class="btn btn-primary btn-sm">Edit</a> |
-                        <a href="season_edit.php?id=<?php echo $season->getId(); ?>" class="btn btn-danger btn-sm">Delete</a>
+                    <div class="col-md-3">
+                        <div class="ml-auto align-right">
+                            <a href="edit-season.php?id=<?php echo $season->getId(); ?>" class="btn btn-primary btn-sm">Edit</a>
+                            <button class="btn btn-danger btn-sm" x-data="{ label: 'Delete' }" x-text="label"></button>
+                        </div>
                     </div>
                 </div>
                 <?php endforeach; ?>
             </div>
         </div>
     </div>
-    <footer class="footer px-4">
-        <div><a href="https://coreui.io">CoreUI </a><a href="https://coreui.io/product/free-bootstrap-admin-template/">Bootstrap Admin Template</a> © 2025 creativeLabs.</div>
-        <div class="ms-auto">Powered by&nbsp;<a href="https://coreui.io/bootstrap/docs/">CoreUI UI Components</a></div>
-    </footer>
+<?php include 'includes/footer.php'; ?>
 </div>
 <!-- CoreUI and necessary plugins-->
 <script src="vendors/@coreui/coreui/js/coreui.bundle.min.js"></script>
@@ -269,8 +201,7 @@ try{
 <!-- Plugins and scripts required by this view-->
 <script src="vendors/@coreui/utils/js/index.js"></script>
 <script src="js/main.js"></script>
-<script>
-</script>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.3/dist/cdn.min.js"></script>
 
 </body>
 </html>
