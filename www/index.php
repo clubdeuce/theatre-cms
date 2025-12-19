@@ -3,7 +3,6 @@ require_once "../vendor/autoload.php";
 
 use Clubdeuce\TheatreCMS\Models\Season;
 use Clubdeuce\TheatreCMS\Repositories\SeasonRepository;
-use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
