@@ -8,25 +8,6 @@
  */
 
 require '../../vendor/autoload.php';
-
-use Clubdeuce\TheatreCMS\Models\Season;
-
-$data = filter_input_array(INPUT_POST, [
-    'seasonName' => FILTER_UNSAFE_RAW,
-    'startDate' => FILTER_UNSAFE_RAW,
-    'endDate' => FILTER_UNSAFE_RAW,
-    'excerpt' => FILTER_UNSAFE_RAW,
-]);
-
-if (!empty($data['seasonName'])) {
-    $slug = strtolower(str_replace(' ', '-', trim($data['seasonName'])));
-    $season = new Season($slug, trim($data['seasonName']));
-
-    $container = require '../../app/bootstrap.php';
-    /** @var \Clubdeuce\TheatreCMS\Repositories\SeasonRepository $seasonRepository */
-    $seasonRepository = $container->get(\Clubdeuce\TheatreCMS\Repositories\SeasonRepository::class);
-    $seasonRepository->create($season);
-}
 ?>
 <!DOCTYPE html><!--
 * CoreUI - Free Bootstrap Admin Template
@@ -70,48 +51,7 @@ if (!empty($data['seasonName'])) {
     <script src="js/color-modes.js"></script>
 </head>
 <body>
-<div class="sidebar sidebar-dark sidebar-fixed border-end" id="sidebar">
-    <div class="sidebar-header border-bottom">
-        <div class="sidebar-brand">
-            <svg class="sidebar-brand-full" width="88" height="32" alt="CoreUI Logo">
-                <use xlink:href="assets/brand/coreui.svg#full"></use>
-            </svg>
-            <svg class="sidebar-brand-narrow" width="32" height="32" alt="CoreUI Logo">
-                <use xlink:href="assets/brand/coreui.svg#signet"></use>
-            </svg>
-        </div>
-        <button class="btn-close d-lg-none" type="button" data-coreui-theme="dark" aria-label="Close" onclick="coreui.Sidebar.getInstance(document.querySelector(&quot;#sidebar&quot;)).toggle()"></button>
-    </div>
-    <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
-        <li class="nav-item"><a class="nav-link" href="index.html">
-                <svg class="nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
-                </svg> Dashboard<span class="badge badge-sm bg-info ms-auto">NEW</span></a></li>
-        <li class="nav-title">Content</li>
-        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
-                <svg class="nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-calendar"></use>
-                </svg> Seasons</a>
-            <ul class="nav-group-items compact">
-                <li class="nav-item"><a class="nav-link" href="add-season.php"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Add new Season</a></li>
-                <li class="nav-item"><a class="nav-link" href="seasons.php"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> View all Seasons</a></li>
-            </ul>
-        </li>
-        <li class="nav-group">
-            <a class="nav-link nav-group-toggle" href="#">
-                <svg class="nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
-                </svg> Works</a>
-            <ul class="nav-group-items compact">
-                <li class="nav-item"><a class="nav-link" href="add-season.php"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Add new Season</a></li>
-                <li class="nav-item"><a class="nav-link" href="seasons.php"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> View all Seasons</a></li>
-            </ul>
-        </li>
-    </ul>
-    <div class="sidebar-footer border-top d-none d-md-flex">
-        <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
-    </div>
-</div>
+<?php include 'includes/sidebar.php'; ?>
 <div class="wrapper d-flex flex-column min-vh-100">
     <header class="header header-sticky p-0 mb-4">
         <div class="container-fluid border-bottom px-4">
@@ -253,10 +193,7 @@ if (!empty($data['seasonName'])) {
             </form>
         </div>
     </div>
-    <footer class="footer px-4">
-        <div><a href="https://coreui.io">CoreUI </a><a href="https://coreui.io/product/free-bootstrap-admin-template/">Bootstrap Admin Template</a> © 2025 creativeLabs.</div>
-        <div class="ms-auto">Powered by&nbsp;<a href="https://coreui.io/bootstrap/docs/">CoreUI UI Components</a></div>
-    </footer>
+    <?php include 'includes/footer.php'; ?>
 </div>
 <!-- CoreUI and necessary plugins-->
 <script src="vendors/@coreui/coreui/js/coreui.bundle.min.js"></script>
